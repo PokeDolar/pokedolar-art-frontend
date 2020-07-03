@@ -17,7 +17,7 @@ const PokemonItem = props => {
           </div>
         </div>
         <div className="pokemon-item__info">
-          <h2>{props.name}</h2>
+          <h3>#{`${props.id}`.padStart(3,0)} {props.name}</h3>
         </div>
         </a>
       </div>
