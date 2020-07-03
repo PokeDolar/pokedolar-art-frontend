@@ -5,6 +5,8 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
+
+import MainNav from "./shared/components/Navigation/MainNavigation"
 import User from "./user/pages/users";
 import Pokemons from "./pokemon/pages/Pokemons";
 import Pokemon from "./pokemon/pages/Pokemon";
@@ -12,7 +14,7 @@ import Pokemon from "./pokemon/pages/Pokemon";
 const App = () => {
   return (
     <Router>
-      <h1>SEMRPE</h1>
+      <MainNav/>
       <Switch>
         <Route path="/" exact>
           <h1> Home</h1>
