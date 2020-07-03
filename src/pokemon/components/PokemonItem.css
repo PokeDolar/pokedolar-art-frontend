@@ -1,9 +1,6 @@
 
 .pokemon-item {
-    background-color: red;
-    border-radius: 2rem;
     display: block;
-    margin-bottom:1rem;
     display: flex;
 }
 
@@ -20,7 +17,8 @@
 }
 .pokemon-item-icon__container{
     float: left;
-    background-color: white;
+    /* background-color: white; */
+    background: -webkit-linear-gradient(top, red, red 46%, black 46% , black 54%, white 54%, white);
     border-radius: 50%;
     padding: 0.5rem;
     box-shadow: 0 0 0 .1rem black;
@@ -37,3 +35,4 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+/*  */
