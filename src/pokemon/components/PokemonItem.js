@@ -1,9 +1,6 @@
 import React from 'react';
 import './PokemonItem.css'
 const PokemonItem = props => {
-  var sectionStyle = {
-    backgroundImage: "pokemon-icons/" + `${props.id}`.padStart(3, 0) + ".png"
-  }
   return (
     <li className="pokemon-item">
       <div className="pokemon-item__content">
