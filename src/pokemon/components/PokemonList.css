@@ -1,0 +1,4 @@
+.pokemon_list{
+    height: 11rem;
+    overflow-y: scroll;
+}

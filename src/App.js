@@ -14,7 +14,7 @@ import Pokemon from "./pokemon/pages/Pokemon";
 const App = () => {
   return (
     <Router>
-      <MainNav/>
+      <main><MainNav/></main>
       <Switch>
         <Route path="/" exact>
           <h1> Home</h1>
@@ -30,7 +30,6 @@ const App = () => {
         </Route>
         <Redirect to="/" />
       </Switch>
-      <h2>FIM</h2>
     </Router>
   );
 };

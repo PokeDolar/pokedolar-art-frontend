@@ -1,6 +1,7 @@
 import React from "react";
 import "./PokemonList.css";
-import PokeItem from "./PokemonItem";
+
+import PokeItem from "../../shared/components/pokemon/PokemonItem"
 const PokemonList = (props) => {
   if (props.items.length === 0) {
     return (
@@ -11,7 +12,7 @@ const PokemonList = (props) => {
   }
 
   return (
-    <ul>
+    <ul className="pokemon_list">
       {props.items.map((pokemon) => {
         return (
           <PokeItem
