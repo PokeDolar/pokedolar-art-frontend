@@ -6,27 +6,13 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: linear-gradient(
-    120deg, 
-    #ffe7e8 0%,
-    #ffe7e8 10%,
-    #c42834 10%,
-    #c42834 20%,
-    #e33241 20%,
-    #e33241 80%,
-    #c42834 80%,
-    #c42834 90%,
-    #dde9ff 10%,
-    #dde9ff 0%
-  );
+  background: #e33241;
+  border-bottom: 2px solid black;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
-  padding: 0 1rem;
+  padding: 0 2vw;
   z-index: 5;
 }
 
-main {
-  margin-top: 5rem;
-}
 
 @media (min-width: 768px) {
   .main-header {

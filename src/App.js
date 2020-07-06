@@ -15,6 +15,7 @@ const App = () => {
   return (
     <Router>
       <main><MainNav/></main>
+      <content>
       <Switch>
         <Route path="/" exact>
           <h1> Home</h1>
@@ -30,6 +31,7 @@ const App = () => {
         </Route>
         <Redirect to="/" />
       </Switch>
+      </content>
     </Router>
   );
 };

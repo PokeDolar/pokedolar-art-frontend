@@ -8,7 +8,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right: 3rem;
 }
 
 .nav-links li {
@@ -24,18 +23,21 @@
   border-radius: 2rem;
   fill: black;
   
-  transition: all 0.3s ease;
-  background: linear-gradient(120deg, black, black 50%, white 50%);
-    background-size: 300% 100%;
-    background-position:right center;
+  background: linear-gradient(120deg,black, gray 70%, white 70%);
+  background-size: 400% 400%;
+  background-position:right center;
+
+
+  transition: all 0.2s ease;
 }
 
 .nav-links a:hover,
 .nav-links a:active,
 .nav-links a.active {
   color: white;
-
   background-position:left center;
+  background: black;
+  transition: all 0s;
   fill: white !important;
 }
 

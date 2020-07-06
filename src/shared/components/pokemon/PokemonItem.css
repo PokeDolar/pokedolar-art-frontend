@@ -4,6 +4,9 @@
     height: 2.5rem;
 }
 
+.pokemon-item__icon {
+    padding-right: 1rem;
+}
 .pokemon-item__anchor {
     text-decoration: none;
     color: black;
@@ -11,16 +14,12 @@
     align-items: center;
 }
 
-.pokemon-item__icon {
-    padding-left: 2rem;
-    padding-right: 1rem;
-}
 .pokemon-item-icon__container{
     float: left;
     /* background-color: white; */
     background: -webkit-linear-gradient(top, red, red 46%, black 46% , black 54%, white 54%, white);
     border-radius: 50%;
-    padding: 0.2rem;
+    padding: 0.3rem;
     box-shadow: 0 0 0 .1rem black;
 }
 

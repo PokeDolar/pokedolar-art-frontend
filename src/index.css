@@ -10,10 +10,30 @@ html {
 
 body {
   margin: 0;
-  background: #4d4d4d;
-  min-height: 100vh;
+  /* background: linear-gradient(
+    100deg, 
+    #ffe7e8 0%,
+    #ffe7e8 5%,
+    #c42834 6%,
+    #c42834 10%,
+    #e33241 11%,
+    #e33241 90%,
+    #c42834 91%,
+    #c42834 95%,
+    #dde9ff 96%,
+    #dde9ff 100%
+  ); */
+  background:#ffe6e6;
+  max-height: 100vh;
 }
-
+content {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem 0 2rem 0;
+  max-width: 100%;
+  max-height: 100vh;
+  flex-direction: column;
+}
 .slide-in-left-enter {
   transform: translateX(-100%);
 }
@@ -40,4 +60,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (min-width: 768px){
+  content{
+    flex-direction: row;
+  }
 }
