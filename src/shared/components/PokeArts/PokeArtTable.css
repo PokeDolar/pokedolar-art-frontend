@@ -1,5 +1,5 @@
 .table-container{
-  width: 100%;
+  width: 90%;
 }
 table{
   margin-top: 1rem;
@@ -7,7 +7,6 @@ table{
 }
 
 tr > th {
-  width: 40%;
   background: #dbdbda;
   margin: 0;
   
@@ -28,13 +27,14 @@ tr:not(:last-child) > td{
 }
 
 @media (min-width: 768px){
-  .table-container{
-    width: 40%;
-  }
+
   table{
-    width: 40%;
+    width: 100%;
   }
   tr{
     height: 2.5rem;
+  }
+  tr > th {
+    width: 40%;
   }
 }

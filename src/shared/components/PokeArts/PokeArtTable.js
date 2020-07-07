@@ -20,12 +20,12 @@ const PokeArtTable = (props) => {
           <td>{chosenArt.creatorText || chosenArt.author}</td>
         </tr>
         <tr>
-          <th>Quantidade de Posts</th>
+          <th>Quantidade de Tweets</th>
           <td>{chosenArt.postCount || "0"}</td>
         </tr>
         <tr>
-          <th>Último Post</th>
-          <td>{chosenArt.lastCount || "Não foi postada"}</td>
+          <th>Último Tweet</th>
+          <td>{chosenArt.lastCount || "Não foi twittada"}</td>
         </tr>
         </tbody>
       </table>

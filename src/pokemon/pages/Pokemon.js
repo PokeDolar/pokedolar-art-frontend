@@ -4,15 +4,14 @@ import { useParams } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
 import PokemonDetails from "../../shared/components/PokeArts/PokeArtDetails";
-import PokeArtTable from '../../shared/components/PokeArts/PokeArtTable'
+import PokeArtTable from "../../shared/components/PokeArts/PokeArtTable";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 import randomRange from "../../utils/randomRange";
-import './Pokemon.css'
+import "./Pokemon.css";
 
 const POKEMONS = require("../data/pokedex.json");
-
 
 const Pokemon = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -20,7 +19,7 @@ const Pokemon = () => {
   const [officialArts, setOfficialArts] = useState();
   const [fanArts, setFanArts] = useState();
   const [chosenArt, setChosenArt] = useState();
-  
+
   const { id } = useParams();
   useEffect(() => {
     const sendRequest = async () => {
@@ -29,9 +28,13 @@ const Pokemon = () => {
           `${process.env.REACT_APP_API_URL}pokemon/${id}`
         );
         const responseData = await response.json();
-        
+
         console.log(responseData);
-        let all_arts = responseData.officialPokeArts.concat(responseData.pokeArts);
+        let all_arts = responseData.officialPokeArts.concat(
+          responseData.pokeArts
+        );
+        setOfficialArts(responseData.officialArts);
+        setFanArts(response.pokeArts);
         setChosenArt(all_arts[randomRange(0, all_arts.length)]);
         setLoadedPokemon(responseData);
       } catch (err) {}
@@ -51,10 +54,18 @@ const Pokemon = () => {
         </div>
       )}
       {!isLoading && loadedPokemon && (
-        <React.Fragment >
+        <React.Fragment>
           <div className="pokemon-main">
-          <PokemonDetails chosenArt={chosenArt} apiData={loadedPokemon} localData={pokemon} />
-          <PokeArtTable chosenArt={chosenArt}/>
+            <PokemonDetails
+              chosenArt={chosenArt}
+              apiData={loadedPokemon}
+              localData={pokemon}
+            />
+            <div className="pokemon-side">
+              <PokeArtTable chosenArt={chosenArt} />
+              {/* <PokeArtGallery officialArts={officialArts} fanArts={fanArts}/> */}
+            </div>
+            
           </div>
         </React.Fragment>
       )}
