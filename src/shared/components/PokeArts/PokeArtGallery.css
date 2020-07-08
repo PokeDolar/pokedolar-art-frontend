@@ -1,0 +1,23 @@
+.pokeart-gallery {
+  width: 90%;
+
+  display: flex;
+  overflow-x: scroll;
+  background-color: white;
+  border-radius: 2rem;
+  
+}
+
+/* width */
+
+.pokeart-gallery-anchor{
+  padding: 1rem;
+  height: 100%;
+}
+.pokeart-gallery-img {
+  object-fit: contain;
+  max-height: 10rem;
+  margin-right: 1rem;
+  box-shadow: 0px 0px 0.5rem black;
+  border-radius: 1rem;
+}

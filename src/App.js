@@ -10,6 +10,7 @@ import MainNav from "./shared/components/Navigation/MainNavigation"
 import User from "./user/pages/users";
 import Pokemons from "./pokemon/pages/Pokemons";
 import Pokemon from "./pokemon/pages/Pokemon";
+import PokeArt from './pokeart/pages/PokeArt'
 
 const App = () => {
   return (
@@ -23,11 +24,14 @@ const App = () => {
         <Route path="/user" exact>
           <User />
         </Route>
-        <Router path="/pokemon" exact>
+        <Route path="/pokemon" exact>
           <Pokemons />
-        </Router>
+        </Route >
         <Route path="/pokemon/:id">
           <Pokemon />
+        </Route>
+        <Route path="/pokeart/:id">
+          <PokeArt />
         </Route>
         <Redirect to="/" />
       </Switch>

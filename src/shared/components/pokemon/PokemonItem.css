@@ -3,13 +3,23 @@
     display: flex;
     height: 2.5rem;
 }
+.hide_all{
+    visibility: hidden;
+}
 
-.pokemon-item__icon {
+.text-right {
     padding-right: 1rem;
+}
+.text-left{
+    padding-left: 1rem;
 }
 .pokemon-item__anchor {
     text-decoration: none;
     color: black;
+    background-color: pink;
+    padding: 0 .5rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 0 .1rem lightpink;
     display: inline-flex;
     align-items: center;
 }
@@ -26,6 +36,8 @@
 .pokemon-item__info {
     text-align: center;
     width: 100%;
+    font-weight: bold;
+    padding: .7rem .2rem
 }
 .pokemon-item__icon__img{
     width: 1.5rem;

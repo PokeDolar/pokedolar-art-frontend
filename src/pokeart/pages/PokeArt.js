@@ -10,9 +10,9 @@ import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 import randomRange from "../../utils/randomRange";
-import "./Pokemon.css";
+import "./PokeArt.css";
 
-const POKEMONS = require("../data/pokedex.json");
+const POKEMONS = require("../../pokemon/data/pokedex.json");
 
 const Pokemon = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -20,30 +20,31 @@ const Pokemon = () => {
   const [officialArts, setOfficialArts] = useState();
   const [fanArts, setFanArts] = useState();
   const [chosenArt, setChosenArt] = useState();
-
+  const [pokemon, setPokemon] = useState()
   const { id } = useParams();
   useEffect(() => {
     const sendRequest = async () => {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}pokemon/${id}`
+          `${process.env.REACT_APP_API_URL}pokeart/${id}`
         );
         const responseData = await response.json();
-
-        let all_arts = responseData.officialPokeArts.concat(
-          responseData.pokeArts
-        );
-        setOfficialArts(responseData.officialPokeArts);
-        setFanArts(responseData.pokeArts);
-        setChosenArt(all_arts[randomRange(0, all_arts.length)]);
-        setLoadedPokemon(responseData);
+        console.log(responseData);
+        
+        let pokemon_id = responseData.pokemon.id
+        const responsePoke = await fetch(`${process.env.REACT_APP_API_URL}pokemon/${pokemon_id}`);
+        const responseDataPoke = await responsePoke.json();
+        console.log(responseDataPoke);
+        setPokemon(POKEMONS[pokemon_id-1])
+        setChosenArt(responseData);
+        setOfficialArts(responseDataPoke.officialPokeArts);
+        setFanArts(responseDataPoke.pokeArts);
+        setLoadedPokemon(responseDataPoke);
       } catch (err) {}
     };
     sendRequest();
   }, [id, sendRequest]);
 
-  let index = id - 1;
-  const pokemon = POKEMONS[index];
 
   return (
     <React.Fragment>
