@@ -1,5 +1,6 @@
-.type_icon-img_2{
+.type_icon{
   display: block;
   margin-left: .5rem;
   height: 1rem;
+  box-shadow: 0 0 0 1px black;
 }

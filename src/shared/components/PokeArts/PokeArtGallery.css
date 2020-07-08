@@ -1,23 +1,25 @@
 .pokeart-gallery {
   width: 90%;
-
   display: flex;
-  overflow-x: scroll;
+  align-items: center;
   background-color: white;
   border-radius: 2rem;
-  
+  padding: .5rem;
+  height: 10rem;
 }
 
 /* width */
 
 .pokeart-gallery-anchor{
-  padding: 1rem;
+  padding: .5rem;
+  width: 33%;
   height: 100%;
+  display: flex;
+  
 }
 .pokeart-gallery-img {
+  width: 100%;
   object-fit: contain;
-  max-height: 10rem;
-  margin-right: 1rem;
   box-shadow: 0px 0px 0.5rem black;
   border-radius: 1rem;
 }

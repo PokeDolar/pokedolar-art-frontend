@@ -8,16 +8,17 @@
 }
 
 .text-right {
-    padding-right: 1rem;
+    margin-right: 1rem;
 }
 .text-left{
-    padding-left: 1rem;
+    margin-left: 1rem;
 }
 .pokemon-item__anchor {
     text-decoration: none;
     color: black;
     background-color: pink;
     padding: 0 .5rem;
+    
     border-radius: 2rem;
     box-shadow: 0 0 0 .1rem lightpink;
     display: inline-flex;
