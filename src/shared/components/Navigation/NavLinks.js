@@ -19,7 +19,7 @@ const NavLinks = props => {
       <NavLink to="/users">Minhas Artes</NavLink>
     </li> */}
     <li>
-      <NavLink to="/login">Login</NavLink>
+      <a href="http://192.168.15.57:5555/login">Login</a>
     </li>
   </ul>
 };

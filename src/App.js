@@ -7,10 +7,12 @@ import {
 } from "react-router-dom";
 
 import MainNav from "./shared/components/Navigation/MainNavigation"
-import User from "./user/pages/users";
+
 import Pokemons from "./pokemon/pages/Pokemons";
 import Pokemon from "./pokemon/pages/Pokemon";
 import PokeArt from './pokeart/pages/PokeArt'
+
+import User from "./user/pages/userPage";
 
 const App = () => {
   return (
