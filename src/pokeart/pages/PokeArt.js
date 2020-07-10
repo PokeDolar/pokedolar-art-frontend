@@ -10,7 +10,7 @@ import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 import randomRange from "../../utils/randomRange";
-import "./PokeArt.css";
+import "../../pokemon/pages/Pokemon.css"
 
 const POKEMONS = require("../../pokemon/data/pokedex.json");
 

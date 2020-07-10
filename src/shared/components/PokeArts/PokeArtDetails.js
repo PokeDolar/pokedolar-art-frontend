@@ -35,18 +35,21 @@ const PokemonDetails = (props) => {
               </div>
             </div>
           </div>
-
-          <div class="pokemon-anchors">
-            <PokemonItem id={localData.id - 1} />
-            <PokemonItem id={localData.id + 1} side={"left"} />
-          </div>
+          <div className="pokemon-anchors">
+          <PokemonItem id={localData.id - 1} text={"show"}/>
+          <PokemonItem id={localData.id + 1} side={"left"} text={"show"} />
+        </div>
           <div
             className={"pokemon-details__img"}
             style={{
               backgroundImage: `url(${process.env.REACT_APP_API_URL}${chosenArt.filePath}`,
             }}
             alt={props.name}
-          ></div>
+          ><div className="pokemon-anchors-mobile">
+          <PokemonItem id={localData.id - 1} text={"show"}/>
+          <PokemonItem id={localData.id + 1} side={"left"} text={"show"} />
+        </div></div>
+          
         </div>
       </div>
     </React.Fragment>

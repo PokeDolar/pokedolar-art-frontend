@@ -1,6 +1,11 @@
 .type_icon{
   display: block;
   margin-left: .5rem;
-  height: 1rem;
-  box-shadow: 0 0 0 1px black;
+  height: 2rem;
+}
+
+@media (max-width: 1023px){
+  .type_icon{
+    height: 1.5rem;
+  }
 }

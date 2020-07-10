@@ -35,7 +35,7 @@ const PokemonItem = (props) => {
               />
             </div>
           </div>
-          {!props.side && (
+          {(!props.side && props.text) && (
             <div
               className="pokemon-item__info text-left"
               style={{ float: "right" }}

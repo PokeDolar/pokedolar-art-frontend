@@ -1,8 +1,7 @@
 .pokemon-main {
   display: flex;
-  padding-top: 5rem;
   align-content: stretch;
-
+  padding-top: 1rem;
   width: 100%;
   height: 100%;
   flex-direction: column;
@@ -12,7 +11,7 @@
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-  padding: 2rem;
+  
 }
 
 @media (min-width: 1024px) {
@@ -24,5 +23,6 @@
 
   .pokemon-side {
     width: 40%;
+    padding: 2rem;
   }
 }
