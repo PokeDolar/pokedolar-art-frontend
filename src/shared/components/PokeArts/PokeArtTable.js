@@ -4,6 +4,7 @@ import "./PokeArtTable.css";
 
 const PokeArtTable = (props) => {
   let chosenArt = props.chosenArt;
+  console.log(chosenArt);
   return (
     <React.Fragment>
       <div className="table-container">
@@ -17,7 +18,7 @@ const PokeArtTable = (props) => {
         </tr>
         <tr>
           <th>Artista</th>
-          <td>{chosenArt.creatorText || chosenArt.author}</td>
+          <td>{chosenArt.creatorText || chosenArt.author.twitterDisplayName }</td>
         </tr>
         <tr>
           <th>Quantidade de Tweets</th>

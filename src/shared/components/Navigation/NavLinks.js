@@ -12,17 +12,13 @@ const NavLinks = (props) => {
         <NavLink
           to="/pokemon"
           isActive={(match, location) => {
-            console.log(match);
-            console.log(location);
             if(location.pathname.startsWith("/pokeart")){
               return true;
             }
             if (!match) {
-              console.log(match);
               return false;
             }
             return true;
-            
           }}
         >
           ArtDex
@@ -41,6 +37,12 @@ const NavLinks = (props) => {
           <NavLink to="/users">Minhas Artes</NavLink>
         </li>
       )}
+      {user.isLoggedIn && user.user.admin && (
+          <li>
+            <NavLink to ="/admin">Admin</NavLink>
+          </li>
+        )
+      }
 
       {!user.isLoggedIn && (
         <li>

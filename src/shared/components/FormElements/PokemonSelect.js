@@ -25,7 +25,7 @@ const inputReducer = (state, action) => {
   }
 };
 
-const Input = (props) => {
+const PokemonSelect = (props) => {
   const [inputState, dispatch] = useReducer(inputReducer, {
     value: props.initialValue || "",
     isTouched: false,
@@ -40,6 +40,7 @@ const Input = (props) => {
   }, [id, value, isValid, onInput]);
 
   const changeHandler = (event) => {
+    console.log(event);
     dispatch({
       type: "CHANGE",
       val: event.target.value,
@@ -54,17 +55,22 @@ const Input = (props) => {
   };
 
   const element = (
-    <select>
+    <React.Fragment>
+    <PokemonItem id={value || 0}/>
+    <select 
+    onChange={changeHandler}
+    onBlur={touchHandler}>
       <option value="">Selecione o Pokemon</option>
 
       {POKEMON.map((pokemon) => {
         return (
           <option value={pokemon.id}>
-            {`${pokemon.id}`.padStart(3, 0)} {pokemon.name.english}
+             {pokemon.name.english} #{`${pokemon.id}`.padStart(3, 0)}
           </option>
         );
       })}
     </select>
+    </React.Fragment>
   );
 
   return (
@@ -80,4 +86,4 @@ const Input = (props) => {
   );
 };
 
-export default Input;
+export default PokemonSelect;

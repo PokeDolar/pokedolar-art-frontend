@@ -23,28 +23,26 @@ const Pokemon = () => {
 
   const { id } = useParams();
   useEffect(() => {
-    const sendRequest = async () => {
+    const fetchPokemon = async () => {
       try {
-        const response = await fetch(
+        const response = await sendRequest(
           `${process.env.REACT_APP_API_URL}pokemon/${id}`
         );
-        const responseData = await response.json();
 
-        let all_arts = responseData.officialPokeArts.concat(
-          responseData.pokeArts
+        let all_arts = response.officialPokeArts.concat(
+          response.pokeArts
         );
-        setOfficialArts(responseData.officialPokeArts);
-        setFanArts(responseData.pokeArts);
+        setOfficialArts(response.officialPokeArts);
+        setFanArts(response.pokeArts);
         setChosenArt(all_arts[randomRange(0, all_arts.length)]);
-        setLoadedPokemon(responseData);
+        setLoadedPokemon(response);
       } catch (err) {}
     };
-    sendRequest();
+    fetchPokemon();
   }, [id, sendRequest]);
 
   let index = id - 1;
   const pokemon = POKEMONS[index];
-
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
@@ -63,6 +61,7 @@ const Pokemon = () => {
             />
             <div className="pokemon-side">
               <PokeArtTable chosenArt={chosenArt} />
+              {console.log(typeof(chosenArt))}
               {officialArts && <PokeArtGallery artList={officialArts} types={pokemon.type} galleryName={"Artes Oficiais"}/>}
               {fanArts.length > 0 && <PokeArtGallery artList={fanArts} types={pokemon.type}  galleryName={"Artes dos Fãs"}/>}
             </div>

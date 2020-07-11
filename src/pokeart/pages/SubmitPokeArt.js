@@ -16,7 +16,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import "./PlaceForm.css";
 import { UserContext } from "../../shared/context/user-context";
 
-const NewPlace = () => {
+const SubmitPokeArt = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm(
     {
@@ -25,8 +25,8 @@ const NewPlace = () => {
         isValid: false,
       },
       pokemon: {
-        value: '',
-        isValid: false
+        value: null,
+        isValid: false,
       },
       image: {
         value: null,
@@ -38,27 +38,27 @@ const NewPlace = () => {
 
   const history = useHistory();
 
-  const placeSubmitHandler = async (event) => {
+  const artSubmitHandler = async (event) => {
     event.preventDefault();
+
     try {
       const formData = new FormData();
-      formData.append("artName", formState.inputs.title.value);
-      // formData.append('pokemon', formState.inputs.description.value);
+      console.log(formData);
+      formData.append("pokemon", formState.inputs.pokemon.value);
       formData.append("image", formState.inputs.image.value);
-
+      formData.append("artName", formState.inputs.artName.value);
+      console.log("hmmm");
       await sendRequest(
         `${process.env.REACT_APP_API_URL}pokeart/`,
         "POST",
         formData,
+
         {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Credentials": true,
-          },
-        }
+          Accept: "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
+
+        "include"
       );
       history.push("/");
     } catch (err) {}
@@ -67,7 +67,7 @@ const NewPlace = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
-      <form className="place-form" onSubmit={placeSubmitHandler}>
+      <form className="place-form" onSubmit={artSubmitHandler}>
         {isLoading && <LoadingSpinner asOverlay />}
 
         <ImageUpload
@@ -84,13 +84,20 @@ const NewPlace = () => {
           errorText="Please enter a valid title."
           onInput={inputHandler}
         />
-        <PokemonSelect id="pokemon" element="select" onInput={inputHandler} validators={[VALIDATOR_REQUIRE()]}/>
+        <PokemonSelect
+          id="pokemon"
+          type="select"
+          label="Pokemon"
+          onInput={inputHandler}
+          errorText="Please enter a valid title."
+          validators={[VALIDATOR_REQUIRE()]}
+        />
         <Button type="submit" disabled={!formState.isValid}>
-          ADD PLACE
+          Enviar
         </Button>
       </form>
     </React.Fragment>
   );
 };
 
-export default NewPlace;
+export default SubmitPokeArt;

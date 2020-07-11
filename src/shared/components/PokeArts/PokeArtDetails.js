@@ -8,9 +8,6 @@ import PokemonItem from "../pokemon/PokemonItem";
 const PokemonDetails = (props) => {
   let chosenArt = props.chosenArt;
   let localData = props.localData;
-  console.log(chosenArt);
-  console.log(props.apiData);
-
   return (
     <React.Fragment>
       <div className="pokemon-details__main-art">

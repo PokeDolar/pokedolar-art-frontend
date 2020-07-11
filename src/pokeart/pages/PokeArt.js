@@ -9,7 +9,6 @@ import PokeArtGallery from '../../shared/components/PokeArts/PokeArtGallery'
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
-import randomRange from "../../utils/randomRange";
 import "../../pokemon/pages/Pokemon.css"
 
 const POKEMONS = require("../../pokemon/data/pokedex.json");
@@ -23,17 +22,14 @@ const Pokemon = () => {
   const [pokemon, setPokemon] = useState()
   const { id } = useParams();
   useEffect(() => {
-    const sendRequest = async () => {
+    const fetchArt = async () => {
       try {
-        const response = await fetch(
+        const responseData = await sendRequest(
           `${process.env.REACT_APP_API_URL}pokeart/${id}`
         );
-        const responseData = await response.json();
-        console.log(responseData);
         
         let pokemon_id = responseData.pokemon.id
-        const responsePoke = await fetch(`${process.env.REACT_APP_API_URL}pokemon/${pokemon_id}`);
-        const responseDataPoke = await responsePoke.json();
+        const responseDataPoke = await sendRequest(`${process.env.REACT_APP_API_URL}pokemon/${pokemon_id}`);
         console.log(responseDataPoke);
         setPokemon(POKEMONS[pokemon_id-1])
         setChosenArt(responseData);
@@ -42,7 +38,7 @@ const Pokemon = () => {
         setLoadedPokemon(responseDataPoke);
       } catch (err) {}
     };
-    sendRequest();
+    fetchArt();
   }, [id, sendRequest]);
 
 
