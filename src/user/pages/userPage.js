@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import { useParams } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
@@ -6,7 +6,11 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
+import { UserContext } from '../../shared/context/user-context'
+
 const Pokemon = () => {
+
+  const userContext = useContext(UserContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [user, setUser] = useState();
@@ -23,10 +27,10 @@ const Pokemon = () => {
           },
         });
         const responseData = await response.json();
-
-        console.log(responseData);
+        userContext.login(responseData);
         setUser(responseData);
-      } catch (err) {}
+      } catch (err) {
+      }
     };
     sendRequest();
   }, [sendRequest]);
