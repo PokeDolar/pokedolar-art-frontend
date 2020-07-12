@@ -8,6 +8,11 @@ import PokemonItem from "../pokemon/PokemonItem";
 const PokemonDetails = (props) => {
   let chosenArt = props.chosenArt;
   let localData = props.localData;
+  console.log(chosenArt);
+  console.log(props.apiData);
+  let url = `${process.env.REACT_APP_API_URL}${chosenArt.filePath}`
+  console.log(url);
+  console.log(encodeURI(url));
   return (
     <React.Fragment>
       <div className="pokemon-details__main-art">
@@ -39,7 +44,7 @@ const PokemonDetails = (props) => {
           <div
             className={"pokemon-details__img"}
             style={{
-              backgroundImage: `url(${process.env.REACT_APP_API_URL}${chosenArt.filePath}`,
+              backgroundImage: `url(` + encodeURI(url) + `)`,
             }}
             alt={props.name}
           ><div className="pokemon-anchors-mobile">

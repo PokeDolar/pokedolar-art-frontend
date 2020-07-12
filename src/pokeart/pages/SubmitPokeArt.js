@@ -13,7 +13,7 @@ import {
 } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import "./PlaceForm.css";
+import "./SubmitPokeArt.css";
 import { UserContext } from "../../shared/context/user-context";
 
 const SubmitPokeArt = () => {
@@ -67,34 +67,37 @@ const SubmitPokeArt = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
-      <form className="place-form" onSubmit={artSubmitHandler}>
+      <form className="pokeart-form" onSubmit={artSubmitHandler}>
         {isLoading && <LoadingSpinner asOverlay />}
-
-        <ImageUpload
-          id="image"
-          onInput={inputHandler}
-          errorText="Please provide an image."
-        />
-        <Input
-          id="artName"
-          element="input"
-          type="text"
-          label="Title"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Please enter a valid title."
-          onInput={inputHandler}
-        />
-        <PokemonSelect
-          id="pokemon"
-          type="select"
-          label="Pokemon"
-          onInput={inputHandler}
-          errorText="Please enter a valid title."
-          validators={[VALIDATOR_REQUIRE()]}
-        />
-        <Button type="submit" disabled={!formState.isValid}>
-          Enviar
-        </Button>
+        <div className="art-div">
+          <ImageUpload
+            id="image"
+            onInput={inputHandler}
+            errorText="Please provide an image."
+          />
+        </div>
+        <div className="data-div">
+          <Input
+            id="artName"
+            element="input"
+            type="text"
+            label="Título"
+            validators={[VALIDATOR_REQUIRE()]}
+            errorText="Please enter a valid title."
+            onInput={inputHandler}
+          />
+          <PokemonSelect
+            id="pokemon"
+            type="select"
+            label="Pokemon"
+            onInput={inputHandler}
+            errorText="Please enter a valid title."
+            validators={[VALIDATOR_REQUIRE()]}
+          />
+          <Button type="submit" disabled={!formState.isValid}>
+            Enviar
+          </Button>
+        </div>
       </form>
     </React.Fragment>
   );

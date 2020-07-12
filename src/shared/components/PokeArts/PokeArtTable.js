@@ -18,7 +18,7 @@ const PokeArtTable = (props) => {
         </tr>
         <tr>
           <th>Artista</th>
-          <td>{chosenArt.creatorText || chosenArt.author.twitterDisplayName }</td>
+          <td>{chosenArt.creatorText || (<a href={`https://twitter.com/i/user/${chosenArt.author.twitterId}`}>{chosenArt.author.twitterDisplayName}</a>)}</td>
         </tr>
         <tr>
           <th>Quantidade de Tweets</th>

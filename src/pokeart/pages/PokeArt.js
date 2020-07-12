@@ -55,7 +55,6 @@ const Pokemon = () => {
           <div className="pokemon-main">
             <PokemonDetails
               chosenArt={chosenArt}
-              apiData={loadedPokemon}
               localData={pokemon}
             />
             <div className="pokemon-side">

@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect } from "react";
 
 import { validate } from "../../util/validators";
-import "./Input.css";
+import "./PokemonSelect.css";
 import PokemonItem from '../pokemon/PokemonItem'
 
 const POKEMON = require("../../../pokemon/data/pokedex.json");
@@ -55,12 +55,10 @@ const PokemonSelect = (props) => {
   };
 
   const element = (
-    <React.Fragment>
-    <PokemonItem id={value || 0}/>
+      <div className="pokemon-selector">
     <select 
     onChange={changeHandler}
     onBlur={touchHandler}>
-      <option value="">Selecione o Pokemon</option>
 
       {POKEMON.map((pokemon) => {
         return (
@@ -70,7 +68,8 @@ const PokemonSelect = (props) => {
         );
       })}
     </select>
-    </React.Fragment>
+    <PokemonItem id={value || 1}/>
+    </div>
   );
 
   return (

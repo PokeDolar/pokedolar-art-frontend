@@ -41,7 +41,7 @@ const ImageUpload = props => {
   };
 
   return (
-    <div className="form-control">
+    <React.Fragment>
       <input
         id={props.id}
         ref={filePickerRef}
@@ -53,14 +53,16 @@ const ImageUpload = props => {
       <div className={`image-upload ${props.center && 'center'}`}>
         <div className="image-upload__preview">
           {previewUrl && <img src={previewUrl} alt="Preview" />}
-          {!previewUrl && <p>Please pick an image.</p>}
+          {!previewUrl && <Button type="button" onClick={pickImageHandler}>
+          Escolher Imagem
+        </Button>}
+        
         </div>
-        <Button type="button" onClick={pickImageHandler}>
-          PICK IMAGE
-        </Button>
+        {previewUrl && <Button type="button" onClick={pickImageHandler}>
+          Trocar Imagem
+        </Button>}
       </div>
-      {!isValid && <p>{props.errorText}</p>}
-    </div>
+      </React.Fragment>
   );
 };
 
