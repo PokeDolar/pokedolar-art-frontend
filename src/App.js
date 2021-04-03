@@ -9,6 +9,7 @@ import {
 import MainNav from "./shared/components/Navigation/MainNavigation";
 
 import Pokemons from "./pokemon/pages/Pokemons";
+import MainPage from "./pokemon/pages/MainPage";
 import Pokemon from "./pokemon/pages/Pokemon";
 import PokeArt from "./pokeart/pages/PokeArt";
 import SubmitPokeArt from "./pokeart/pages/SubmitPokeArt";
@@ -32,8 +33,7 @@ const App = () => {
           `${process.env.REACT_APP_API_URL}user/`,
           "GET"
         );
-        console.log(response);
-        setUser(response);
+                setUser(response);
       } catch (err) {}
     };
     fetchUser();
@@ -54,7 +54,7 @@ const App = () => {
         <content>
           <Switch>
             <Route path="/" exact>
-              <h1> Home</h1>
+              <MainPage />
             </Route>
             <Route path="/user" exact>
               <User />

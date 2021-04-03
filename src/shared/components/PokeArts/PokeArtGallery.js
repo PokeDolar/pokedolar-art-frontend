@@ -26,7 +26,7 @@ const PokeArtGallery = (props) => {
                     className={`pokeart-gallery-img ${
                       types[index % types.length]
                     }`}
-                    src={process.env.REACT_APP_API_URL + art.filePath}
+                    src={art.filePath}
                     alt={art.name}
                     effect="opacity"
                   />

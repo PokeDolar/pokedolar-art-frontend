@@ -43,12 +43,10 @@ const SubmitPokeArt = () => {
 
     try {
       const formData = new FormData();
-      console.log(formData);
-      formData.append("pokemon", formState.inputs.pokemon.value);
+            formData.append("pokemon", formState.inputs.pokemon.value);
       formData.append("image", formState.inputs.image.value);
       formData.append("artName", formState.inputs.artName.value);
-      console.log("hmmm");
-      await sendRequest(
+            await sendRequest(
         `${process.env.REACT_APP_API_URL}pokeart/`,
         "POST",
         formData,

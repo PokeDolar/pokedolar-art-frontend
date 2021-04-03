@@ -5,8 +5,7 @@ import { UserContext } from '../../shared/context/user-context'
 const Pokemon = () => {
 
   const userContext = useContext(UserContext);
-  console.log(userContext);
-  return (
+    return (
     <React.Fragment>
       {userContext.user && (
         <React.Fragment>

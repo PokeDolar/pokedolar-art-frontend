@@ -5,8 +5,7 @@ import "./NavLinks.css";
 
 const NavLinks = (props) => {
   const user = useContext(UserContext);
-  console.log(user);
-  return (
+    return (
     <ul className="nav-links">
       <li>
         <NavLink
@@ -46,7 +45,12 @@ const NavLinks = (props) => {
 
       {!user.isLoggedIn && (
         <li>
-          <a href="http://192.168.15.57:5555/login">Login</a>
+          <a href="http://10.0.0.102:3001/login">Entrar</a>
+        </li>
+      )}
+      {user.isLoggedIn && (
+        <li>
+          <a href="http://10.0.0.102:3001/logout">Sair</a>
         </li>
       )}
     </ul>

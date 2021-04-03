@@ -6,14 +6,11 @@ import "../pokemon/Types.css";
 import randomRange from "../../../utils/randomRange";
 import PokemonItem from "../pokemon/PokemonItem";
 const PokemonDetails = (props) => {
+  let dolar = props.dolar;
   let chosenArt = props.chosenArt;
   let localData = props.localData;
-  console.log(chosenArt);
-  console.log(props.apiData);
-  let url = `${process.env.REACT_APP_API_URL}${chosenArt.filePath}`
-  console.log(url);
-  console.log(encodeURI(url));
-  return (
+      let url = `${chosenArt.filePath}`
+      return (
     <React.Fragment>
       <div className="pokemon-details__main-art">
         <div
@@ -24,7 +21,7 @@ const PokemonDetails = (props) => {
         >
           <div className="pokemon-details__main-art__header__text">
             <div className="pokemon-details__main-art__header__text__name">
-              {localData.name.english}
+              {dolar && `O dólar está custando R$ ${dolar}`} {dolar && <br></br>}  {localData.name.english}
             </div>
             <div className="pokemon-details__main-art__header__text__info">
               <div className="pokemon-details__main-art__header__text__info__number">

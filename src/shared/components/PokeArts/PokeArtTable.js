@@ -4,8 +4,7 @@ import "./PokeArtTable.css";
 
 const PokeArtTable = (props) => {
   let chosenArt = props.chosenArt;
-  console.log(chosenArt);
-  return (
+    return (
     <React.Fragment>
       <div className="table-container">
       <table>

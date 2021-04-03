@@ -3,8 +3,7 @@ import "./TypeIcon.css";
 
 const TypeIcon = (props) => {
   let typeName = props.typeString;
-  console.log(typeName);
-  return (
+    return (
         <img className="type_icon"
           src={"/type-icons/" + `${typeName}`.toLowerCase() + ".png"}
           alt={props.name}

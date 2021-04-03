@@ -1,0 +1,19 @@
+select{
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border-radius: 2rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  margin-right: 1rem;
+  align-self: center;
+}
+
+.selector{
+  display: flex;
+  padding: 5rem 0;
+  height: 5rem;
+  width: 25%;
+  justify-content: center;
+}

@@ -37,8 +37,7 @@ const AdminReviewArts = () => {
     fetchArts();
   }, [sendRequest]);
   const removeFirstElem = () => {
-    console.log(pendingArts);
-    if (pendingArts) {
+        if (pendingArts) {
       pendingArts.shift();
       setPendingArts(pendingArts);
       if (pendingArts.length) {
@@ -55,24 +54,21 @@ const AdminReviewArts = () => {
         "PATCH"
       );
     } catch (e) {
-      console.log(e);
-    }
+          }
   };
   const acceptCurrentArt = () => {
     try {
       changeApprovalRequest(currentArt, "true");
       removeFirstElem();
     } catch (e) {
-      console.log(e);
-    }
+          }
   };
   const denyCurrentArt = () => {
     try {
       changeApprovalRequest(currentArt, "false");
       removeFirstElem();
     } catch (e) {
-      console.log(e);
-    }
+          }
   };
   return (
     <React.Fragment>

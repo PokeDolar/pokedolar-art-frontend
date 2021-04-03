@@ -10,39 +10,44 @@ import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 import randomRange from "../../utils/randomRange";
-import "./Pokemon.css";
+import "./MainPage.css";
 
 const POKEMONS = require("../data/pokedex.json");
 
 const Pokemon = () => {
+  console.log("hmm");
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [loadedPokemon, setLoadedPokemon] = useState();
   const [officialArts, setOfficialArts] = useState();
   const [fanArts, setFanArts] = useState();
   const [chosenArt, setChosenArt] = useState();
+  const [pokemon, setPokemon] = useState();
+  const [dolar, setDolar] = useState();
 
-  const { id } = useParams();
+  let id = 1
   useEffect(() => {
     const fetchPokemon = async () => {
       try {
         const response = await sendRequest(
-          `${process.env.REACT_APP_API_URL}pokemon/${id}`
+          `${process.env.REACT_APP_API_URL}`
         );
 
-        let all_arts = response.officialPokeArts.concat(
-          response.pokeArts
+        let all_arts = response.pokemon.officialPokeArts.concat(
+          response.pokemon.pokeArts
         );
-        setOfficialArts(response.officialPokeArts);
-        setFanArts(response.pokeArts);
+        id = response.pokemon.id
+        setOfficialArts(response.pokemon.officialPokeArts);
+        setFanArts(response.pokemon.pokeArts);
         setChosenArt(all_arts[randomRange(0, all_arts.length)]);
-        setLoadedPokemon(response);
+        setLoadedPokemon(response.pokemon);
+        setPokemon(POKEMONS[id-1]);
+        setDolar(response.dolar);
       } catch (err) {}
     };
     fetchPokemon();
   }, [id, sendRequest]);
 
   let index = id - 1;
-  const pokemon = POKEMONS[index];
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
@@ -51,13 +56,14 @@ const Pokemon = () => {
           <LoadingSpinner />
         </div>
       )}
-      {!isLoading && loadedPokemon && (
+      {!isLoading && loadedPokemon && pokemon && (
         <React.Fragment>
           <div className="pokemon-main">
             <PokemonDetails
               chosenArt={chosenArt}
               apiData={loadedPokemon}
               localData={pokemon}
+              dolar={dolar}
             />
             <div className="pokemon-side">
               <PokeArtTable chosenArt={chosenArt} />

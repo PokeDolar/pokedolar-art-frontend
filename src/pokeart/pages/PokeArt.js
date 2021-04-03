@@ -30,8 +30,7 @@ const Pokemon = () => {
         
         let pokemon_id = responseData.pokemon.id
         const responseDataPoke = await sendRequest(`${process.env.REACT_APP_API_URL}pokemon/${pokemon_id}`);
-        console.log(responseDataPoke);
-        setPokemon(POKEMONS[pokemon_id-1])
+                setPokemon(POKEMONS[pokemon_id-1])
         setChosenArt(responseData);
         setOfficialArts(responseDataPoke.officialPokeArts);
         setFanArts(responseDataPoke.pokeArts);
