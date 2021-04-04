@@ -1,39 +1,53 @@
-.lds-dual-ring {
-  display: inline-block;
-  width: 64px;
-  height: 64px;
+.wrapper
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
 }
 
-.lds-dual-ring:after {
-  content: ' ';
-  display: block;
-  width: 46px;
-  height: 46px;
-  margin: 1px;
-  border-radius: 50%;
-  border: 5px solid #510077;
-  border-color: #510077 transparent #510077 transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
+.pokeball {
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 50% ;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid;
+  animation: frames .3s ease-out .1s infinite;
 }
-
-.loading-spinner__overlay {
-  height: 100%;
-  width: 100%;
+.pokeball:after{
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 60px;
+  height: 30px;
+  background-color: red;
+  border-bottom: 4px solid;
+  top: -4px;
+  left: -4px;
 }
 
-@keyframes lds-dual-ring {
+.pokeball:before{
+  content: '';
+  position: absolute;
+  background-color: #fff;
+  width: 10px;
+  height:10px;
+  border: 4px solid;
+  border-radius: 50%;
+  bottom: 18px;
+  right: 18px;
+  z-index: 1;
+}
+
+/* AnimationFrames */
+@keyframes frames{
   0% {
     transform: rotate(0deg);
   }
-
-  100% {
+  100%{
     transform: rotate(360deg);
   }
 }

@@ -1,4 +1,6 @@
 import React from "react";
+import Moment from 'react-moment';
+import 'moment/locale/pt-br';
 
 import "./PokeArtTable.css";
 
@@ -21,11 +23,11 @@ const PokeArtTable = (props) => {
         </tr>
         <tr>
           <th>Quantidade de Tweets</th>
-          <td>{chosenArt.postCount || "0"}</td>
+          <td>{chosenArt.postAmount || "0"}</td>
         </tr>
         <tr>
           <th>Último Tweet</th>
-          <td>{chosenArt.lastCount || "Não foi twittada"}</td>
+          <td>{chosenArt.lastTweet && (<a href={`https://twitter.com/pkd/status/${chosenArt.lastTweet}`}><Moment format='LLLL' locale='pt-br'>{chosenArt.lastPosted}</Moment></a>) || "Não foi twittada"}</td>
         </tr>
         </tbody>
       </table>
