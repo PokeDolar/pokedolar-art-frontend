@@ -28,7 +28,7 @@ body {
   height: 100vh;
   max-height: 100vh;
 }
-content {
+.content {
   display: flex;
   justify-content: space-evenly;
   padding-top: 4rem;

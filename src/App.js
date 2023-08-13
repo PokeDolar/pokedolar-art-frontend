@@ -15,7 +15,7 @@ import PokeArt from "./pokeart/pages/PokeArt";
 import SubmitPokeArt from "./pokeart/pages/SubmitPokeArt";
 import User from "./user/pages/userPage";
 import Admin from "./admin/pages/Admin";
-import ReviewPendingArts from "./admin/pages/ReviewPendingArts"
+import ReviewPendingArts from "./admin/pages/ReviewPendingArts";
 import { UserContext } from "./shared/context/user-context";
 import { useHttpClient } from "./shared/hooks/http-hook";
 
@@ -33,7 +33,7 @@ const App = () => {
           `${process.env.REACT_APP_API_URL}user/`,
           "GET"
         );
-                setUser(response);
+        setUser(response);
       } catch (err) {}
     };
     fetchUser();

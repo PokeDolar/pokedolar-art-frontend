@@ -5,13 +5,13 @@ import "./NavLinks.css";
 
 const NavLinks = (props) => {
   const user = useContext(UserContext);
-    return (
+  return (
     <ul className="nav-links">
       <li>
         <NavLink
           to="/pokemon"
           isActive={(match, location) => {
-            if(location.pathname.startsWith("/pokeart")){
+            if (location.pathname.startsWith("/pokeart")) {
               return true;
             }
             if (!match) {
@@ -37,20 +37,19 @@ const NavLinks = (props) => {
         </li>
       )}
       {user.isLoggedIn && user.user.admin && (
-          <li>
-            <NavLink to ="/admin">Admin</NavLink>
-          </li>
-        )
-      }
+        <li>
+          <NavLink to="/admin">Admin</NavLink>
+        </li>
+      )}
 
       {!user.isLoggedIn && (
         <li>
-          <a href="http://10.0.0.102:3001/login">Entrar</a>
+          <a href={`${process.env.REACT_APP_API_URL}/login`}>Entrar</a>
         </li>
       )}
       {user.isLoggedIn && (
         <li>
-          <a href="http://10.0.0.102:3001/logout">Sair</a>
+          <a href={`${process.env.REACT_APP_API_URL}/logout`}>Sair</a>
         </li>
       )}
     </ul>
