@@ -44,12 +44,12 @@ const NavLinks = (props) => {
 
       {!user.isLoggedIn && (
         <li>
-          <a href={`${process.env.REACT_APP_API_URL}/login`}>Entrar</a>
+          <a href={`${process.env.REACT_APP_API_URL}login`}>Entrar</a>
         </li>
       )}
       {user.isLoggedIn && (
         <li>
-          <a href={`${process.env.REACT_APP_API_URL}/logout`}>Sair</a>
+          <a href={`${process.env.REACT_APP_API_URL}logout`}>Sair</a>
         </li>
       )}
     </ul>

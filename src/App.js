@@ -51,7 +51,7 @@ const App = () => {
         <main>
           <MainNav />
         </main>
-        <content>
+        <div className="content">
           <Switch>
             <Route path="/" exact>
               <MainPage />
@@ -79,7 +79,7 @@ const App = () => {
             </Route>
             <Redirect to="/" />
           </Switch>
-        </content>
+        </div>
       </Router>
     </UserContext.Provider>
   );
