@@ -42,7 +42,7 @@ const NavLinks = (props) => {
         </li>
       )}
 
-      {!user.isLoggedIn && (
+      {/* {!user.isLoggedIn && (
         <li>
           <a href={`${process.env.REACT_APP_API_URL}login`}>Entrar</a>
         </li>
@@ -51,7 +51,7 @@ const NavLinks = (props) => {
         <li>
           <a href={`${process.env.REACT_APP_API_URL}logout`}>Sair</a>
         </li>
-      )}
+      )} */}
     </ul>
   );
 };

@@ -23,17 +23,17 @@ const App = () => {
   const [user, setUser] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const login = useCallback((user) => {
-    setUser(user);
+    // setUser(user);
   }, []);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await sendRequest(
-          `${process.env.REACT_APP_API_URL}user/`,
-          "GET"
-        );
-        setUser(response);
+        // const response = await sendRequest(
+        //   `${process.env.REACT_APP_API_URL}user/`,
+        //   "GET"
+        // );
+        // setUser(response);
       } catch (err) {}
     };
     fetchUser();
